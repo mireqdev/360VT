@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+	<style>
+	* {
+	  box-sizing: border-box;
+	}
+
+	body {
+	  font-family: Arial, Helvetica, sans-serif;
+	}
+
+
+
+	 span{
+		border-radius: 25px;
+		color: #FFFFFF;
+		background-color: #617E8A;
+		border: 10px solid #617E8A;
+	 }
+
+	</style>
+
+	<title>Video Player</title>
+</head>
+<body class="cd-about">
+	<main>
+		<div class="cd-about cd-main-content">
+			<div>
+				<a class="cd-btn" href="index.html" data-type="page-transition">&#8592; Main Page</a>
+
+				<link href="css/video-js.min.css" rel="stylesheet">
+				<script src="js/video.min.js"></script>
+				<script src="js/three.js"></script>
+				<link href="css/videojs-panorama.min.css" rel="stylesheet">
+				<link href="css/videojs.css" rel="stylesheet">
+				<script src="js/videojs-panorama.v5.min.js"></script>
+				<script src="js/videojs.js"></script>
+
+				<div class="row">
+				  <div class="column side"></div>
+				  <div class="column middle">
+
+					   <img id="mapimg" src ="LSBU360/map.png" width="512" height="451" alt="Map" usemap="#unimap">
+
+						<map name="unimap">
+						  <area id="fw" shape="poly" coords="414,337,426,339,439,252,406,246,398,297,403,298,410,250,424,252,417,307,397,306,393,320,410,331,416,325" href="fw114.html" alt="FW-114">
+						  <area id="gc" shape="poly" coords="366,58,356,66,358,69,345,79,378,118,400,99" href="gradscafe.html" alt="Grads-Cafe">
+
+						</map>
+					</div>
+				  <div class="column side">
+				  	<span id="wing">
+							<h3>FW-114</h3>
+							<p>Located on the first floor of the Faraday Wing on Keyworth street.</p>
+					</span>
+
+					<span id="su">
+							<h3>Grads-Cafe</h3>
+							<p>Located on the first floor of the student centre on borough road.</p>
+					</span>
+				  </div>
+				</div>
+
+				<div class="footer">
+				  <p></p>
+				</div>
+
+				<script src="LSBU360/scripts/jquery.min.js"></script>
+
+				<script>
+				$(document).ready(function() {
+				    $('map').imageMapResize();
+				});
+				</script>
+				<script>
+
+				$.ajax({
+  url: "test.html",
+  context: document.body,
+  success: function(){
+		$('#wing,#su').css({
+				position: 'absolute'
+		}).hide()
+		$('area').each(function(i) {
+				$('area').eq(i).bind('mouseover', function(e) {
+						$('#wing,#su').eq(i).css({
+								top: e.pageY,
+								left: e.pageX
+						}).show()
+				})
+				$('area').eq(i).bind('mouseout', function() {
+						$('#wing,#su').hide()
+				})
+		})
+  }
+});
+
+				</script>
+
+			</div>
+		</div>
+	</main>
+	<div class="cd-cover-layer"></div>
+	<div class="cd-loading-bar"></div>
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+
+</body>
+</html>
