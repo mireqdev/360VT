@@ -10,8 +10,9 @@
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<script src="js2/main.js" type="text/javascript"></script>
 
-	<title>Animated Page Transition | CodyHouse</title>
+
 </head>
 
 <body>
@@ -20,6 +21,28 @@
 			<div>
 				<h1>360 Virtual Tour</h1>
 				<a class="cd-btn" href="about.html" data-type="page-transition">Start tour</a>
+				<script>
+					// jQuery.ajax({
+					// 	url: 'js2/main.js',
+					// 	dataType: 'script'
+					// });
+
+					jQuery.getScript("js2/main.js");
+
+
+					// $.ajax({
+					// type: 'POST',
+					// dataType: "script",
+					// url: "/js2",
+					// data: {
+					// somedata: 'value'
+					// },
+					// success: $.when($.getScript('main.j'))
+					// .fail(function(jqxhr, textStatus, errorThrown) {
+					//   console.log(textStatus, errorThrown)
+					// })
+					// });
+				</script>
 			</div>
 		</div>
 	</main>
@@ -28,6 +51,8 @@
 	<div class="cd-loading-bar"></div>
 	<script src="js/jquery-2.1.1.js"></script>
 	<script src="js/main.js"></script> <!-- Resource jQuery -->
+	<script src="js2/main.js" type="text/javascript"></script>
+
 </body>
 
 </html>
